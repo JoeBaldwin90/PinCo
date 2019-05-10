@@ -1,0 +1,12 @@
+<h2><%= @product.title %></h2>
+<h3>£<%= @product.price %></h3>
+
+<div>
+  <%= image_tag @product.image_1.thumb.to_s %>
+</div>
+
+<p><%= simple_format @product.description %></p>
+
+<p>
+  <%= link_to "Back to all products", products_path %>
+</p>
