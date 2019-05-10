@@ -10,6 +10,26 @@
   </head>
 
   <body>
+
+  <header>
+    <h1><%= link_to "PinCo", root_path %></h1>
+
+    <nav>
+      <ul>
+        <li><%= link_to "Shop", products_path %></li>
+        <li><%= link_to "Info", info_path %></li>
+        <li><%= link_to "Cart (0)", "#" %></li>
+      </ul>
+    </nav>
+
+  </header>
+
     <%= yield %>
+
+
+    <footer>
+      <p>Copyright 2019 | <%= link_to "Returns policy", "#" %></p>
+    </footer>
+
   </body>
 </html>
