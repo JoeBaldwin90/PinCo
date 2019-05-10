@@ -29,5 +29,17 @@ ActiveAdmin.register Product do
       f.actions
     end
 
+    index do
+      selectable_column
+      index_column
+      column "Main image" do |product|
+        image_tag product.image_1.thumb.to_s, width: "75"
+      end
+      column :title
+      column :price
+      column :is_featured
+      column :is_sold_out
+      actions dropdown: true
+    end
 
 end
