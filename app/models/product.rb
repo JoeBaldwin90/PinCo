@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-  validates :tile, presence: true
+  validates :title, presence: true
   validates :price, presence: true
   validates :description, presence: true
 
