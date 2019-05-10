@@ -3,3 +3,7 @@
 <% @products.each do |p| %>
   <h3><%= link_to p.title, product_path(p) %></h3>
 <% end %>
+
+<p>
+  <%= link_to "Back to home", root_path %>
+</p>
