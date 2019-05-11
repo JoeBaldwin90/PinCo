@@ -1,12 +1,6 @@
 <h1>Homepage</h1>
 <h2>Featured products</h2>
 
-<% @featured_products.each do |p| %>
-  <p><%= link_to p.title, product_path(p) %></p>
-  <p><%= image_tag p.image_1.thumb.to_s %></p>
-<% end %>
+<%= render partial: "products/product", collection: @featured_products %>
 
-
-<p>
-  <%= link_to "Back to all products", products_path %>
-</p>
+<p><%= link_to "All products", products_path %></p>
