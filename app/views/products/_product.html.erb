@@ -1,7 +1,9 @@
 
 <div class="product">
 
-  <%= image_tag product.image_1.medium.to_s %>
+  <%= link_to product_path(product) do %>
+    <%= image_tag product.image_1.medium.to_s %>
+  <% end %>
 
   <h3><%= link_to product.title, product_path(product) %></h3>
 
