@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def current_cart
     # When a customer visits the site, give them a new cart.
     # If customer has a cart, so keep it.
-    if session[:card_id].present?
+    if session[:cart_id].present?
       # They have a cart, keep it.
       @current_cart = Cart.find(session[:cart_id])
     else
