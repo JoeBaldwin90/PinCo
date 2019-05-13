@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-
   has_many :order_items
 
   validates :title, presence: true
@@ -11,5 +10,4 @@ class Product < ApplicationRecord
   mount_uploader :image_3, ProductImageUploader
   mount_uploader :image_4, ProductImageUploader
   mount_uploader :image_5, ProductImageUploader
-
 end
