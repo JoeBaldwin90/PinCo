@@ -16,6 +16,10 @@ class OrderItemsController < ApplicationController
   def update
     @product = Product.find(params[:product_id])
 
+    @order_item = OrderItem.find(params[:id])
+
+    @order_item.update(form_params)
+
     flash[:success] = "Thanks for updating to your cart"
 
     redirect_to product_path(@product)
