@@ -5,33 +5,41 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  <header>
-    <h1><%= link_to "PinCo", root_path %></h1>
+    <header>
+      <h1><%= link_to "PinCo", root_path %></h1>
 
-    <nav>
-      <ul>
-        <li class="header"><%= link_to "Shop", products_path %></li>
-        <li class="header"><%= link_to "Info", info_path %></li>
-        <li class="header"><%= link_to "#" do %>
-          Cart #<%= @current_cart.id %> (0)
-        <% end %></li>
+      <nav>
+        <ul>
+          <li class="header"><%= link_to "Shop", products_path %></li>
+          <li class="header"><%= link_to "Info", info_path %></li>
+          <li class="header"><%= link_to "#" do %>
+            Cart #<%= @current_cart.id %>
+            (0)
+          <% end %>
+        </li>
       </ul>
     </nav>
 
   </header>
 
-    <%= yield %>
+<% if flash[:success].present? %>
+  <div class="success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
 
+<%= yield %>
 
-    <footer>
-      <p>Copyright 2019 | <%= link_to "Returns policy", "#" %></p>
-    </footer>
+<footer>
+  <p>Copyright 2019 |
+    <%= link_to "Returns policy", "#" %></p>
+</footer>
 
-  </body>
+</body>
 </html>
