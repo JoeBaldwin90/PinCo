@@ -24,7 +24,12 @@
           <p><%= item.product.title %></p>
         </td>
         <td><%= item.product.price %></td>
-        <td><%= item.quantity %></td>
+        <td>
+          <%= simple_form_for [item.product, item] do |f| %>
+            <%= f.input :quantity, label: false %>
+            <%= f.button :submit, "Update quantity" %>
+          <% end %>
+        </td>
         <td><%= link_to "Remove", product_order_item_path(item.product, item), method: :delete %></td>
       </tr>
 

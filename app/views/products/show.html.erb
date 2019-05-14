@@ -8,7 +8,7 @@
 <p><%= simple_format @product.description %></p>
 
 <%= simple_form_for [@product, @order_item] do |f| %>
-  <%= f.input :quantity %>
+  <%= f.input :quantity, as: :integer %>
   <%= f.button :submit, "Add to cart" %>
 <% end %>
 
