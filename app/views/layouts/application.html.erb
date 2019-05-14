@@ -19,8 +19,7 @@
           <li class="header"><%= link_to "Shop", products_path %></li>
           <li class="header"><%= link_to "Info", info_path %></li>
           <li class="header"><%= link_to "#" do %>
-            Cart #<%= @current_cart.id %>
-            (0)
+            Cart (<%= @current_cart.total_quantity %>)
           <% end %>
         </li>
       </ul>
