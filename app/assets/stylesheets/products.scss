@@ -1,3 +1,96 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 880px;
+
+  .product {
+    margin: 10px;
+  }
+}
+
+.product-show {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+
+  .description {
+    max-width: 380px;
+    margin-left: 20px;
+
+    p {
+      margin: 0 0 10px;
+    }
+  }
+
+  .price {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+  }
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.order_item_quantity {
+  display: inline;
+}
+
+.quantity-controller {
+  max-width: 220px;
+  text-align: center;
+  border: 1px solid $black;
+  width: auto;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  .qty {
+    width: 25px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    font-size: 1.5rem;
+  }
+  .selector {
+    cursor: pointer;
+    background: none;
+    font-size: 24px;
+    padding: 15px 28px;
+    color: $accent;
+  }
+}
+
+.btn {
+  font-family: $sansFont;
+  font-size: 1rem;
+  color: $accent;
+  background: none;
+  padding: 20px 15px;
+  border-radius: 40px;
+  min-width: 220px;
+
+  &:hover {
+    background: $accent;
+    color: $white;
+  }
+}
