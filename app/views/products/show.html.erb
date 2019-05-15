@@ -1,15 +1,16 @@
 <h2><%= @product.title %></h2>
-<h3>£<%= @product.price %></h3>
 
-<div>
-  <%= image_tag @product.image_1.thumb.to_s %>
+
+<div class="product-show">
+  <div class="image"><%= image_tag @product.image_1.thumb.to_s %></div>
+  <div class="description">
+    <%= simple_format @product.description %>
+  </div>
+  <h3 class="price">$<%= @product.price %></h3>
 </div>
 
-<p><%= simple_format @product.description %></p>
-
-<%= simple_form_for [@product, @order_item] do |f| %>
-  <%= f.input :quantity, as: :integer %>
-  <%= f.button :submit, "Add to cart" %>
-<% end %>
+<div class="quantity">
+  <%= render partial: "quantity" %>
+</div>
 
 <p><%= link_to "Back to all products", products_path %></p>

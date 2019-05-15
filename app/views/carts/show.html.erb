@@ -26,7 +26,9 @@
         <td><%= item.product.price %></td>
         <td>
           <%= simple_form_for [item.product, item] do |f| %>
-            <%= f.input :quantity, label: false %>
+          <span class="selector" onclick="this.parentNode.querySelector('#order_item_quantity').stepDown()">–</span>
+          <%= f.input :quantity, as: :integer, label: false, input_html: { class: 'qty' } %>
+          <span class="selector" onclick="this.parentNode.querySelector('#order_item_quantity').stepUp()">+</span>
             <%= f.button :submit, "Update quantity" %>
           <% end %>
         </td>
