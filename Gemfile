@@ -39,6 +39,7 @@ gem 'mini_magick'
 gem 'activeadmin'
 gem 'devise'
 gem 'country_select'
+gem 'stripe'
 
 
 # Use Capistrano for deployment
