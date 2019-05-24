@@ -1,0 +1,10 @@
+<h1>Thanks for your order</h1>
+<p>We'll pack it, wrap it and ship it to you lickety split</p>
+
+<h2>Order details</h2>
+<p><%= @order.first_name %></p>
+<p><%= @order.address_1 %></p>
+<p><%= @order.city %></p>
+
+
+<p><%= link_to "Back to home", root_path, :class => "btn" %></p>
