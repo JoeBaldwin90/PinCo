@@ -6,7 +6,7 @@
   <div class="description">
     <%= simple_format @product.description %>
   </div>
-  <h3 class="price">$<%= @product.price %></h3>
+  <h3 class="price"><%= number_to_currency @product.price_in_pounds, unit: "£" %></h3>
 </div>
 
 <div class="quantity">

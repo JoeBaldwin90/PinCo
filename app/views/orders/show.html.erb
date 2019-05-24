@@ -6,5 +6,11 @@
 <p><%= @order.address_1 %></p>
 <p><%= @order.city %></p>
 
+<% @order.order_items.each do |item| %>
+
+  <%= item.product.title %>
+
+<% end %>
+
 
 <p><%= link_to "Back to home", root_path, :class => "btn" %></p>
