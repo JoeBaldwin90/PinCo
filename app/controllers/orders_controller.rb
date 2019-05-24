@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    flash[:success] = "Order successful"
   end
 
   def new
@@ -15,6 +14,8 @@ class OrdersController < ApplicationController
     @order.add_from_cart(@current_cart)
 
     if @order.save
+      reset_session # same as log-out
+      flash[:success] = "Order completed"
       redirect_to order_path(@order)
     else
       render "new"
