@@ -1,15 +1,14 @@
 <h1>Thanks for your order</h1>
 <p>We'll pack it, wrap it and ship it to you lickety split</p>
 
-<h2>Order details</h2>
+<h2>Your details</h2>
 <p><%= @order.first_name %></p>
 <p><%= @order.address_1 %></p>
 <p><%= @order.city %></p>
 
+<h3>What you bought</h3>
 <% @order.order_items.each do |item| %>
-
-  <%= item.product.title %>
-
+  <p><%= item.product.title %></p>
 <% end %>
 
 

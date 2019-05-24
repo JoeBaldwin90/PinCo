@@ -1,4 +1,5 @@
 <h1>Checkout</h1>
+<p>Number of order_items in cart: <%= @order.order_items.size %></p>
 
 <%= simple_form_for @order do |f| %>
   <%= f.input :first_name %>
