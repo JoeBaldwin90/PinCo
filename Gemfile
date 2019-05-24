@@ -38,6 +38,7 @@ gem "fog-aws"
 gem 'mini_magick'
 gem 'activeadmin'
 gem 'devise'
+gem 'country_select'
 
 
 # Use Capistrano for deployment
