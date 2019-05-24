@@ -19,7 +19,7 @@
           <li class="header"><%= link_to "Shop", products_path %></li>
           <li class="header"><%= link_to "Info", info_path %></li>
           <li class="header"><%= link_to cart_path do %>
-            Cart (<%= number_to_currency @current_cart.total_price_in_pounds %>)
+            Cart (<%= number_to_currency @current_cart.total_price_in_pounds, unit: "£" %>)
           <% end %>
         </li>
       </ul>
