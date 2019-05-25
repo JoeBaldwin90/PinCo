@@ -1,0 +1,6 @@
+Thank you for your order
+
+Hi, <%= @order.first_name %>!
+Your order ID is: <%= @order.id %>
+You paid <%= number_to_currency @order.total_price_in_pounds %>
+Thanks for your purchase. :-)
