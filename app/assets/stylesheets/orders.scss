@@ -1,3 +1,130 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.payment-form,
+.payment-form form {
+  max-width: 600px;
+}
+
+.payment-form select {
+  background: none;
+  border: none;
+  max-width: 200px;
+  -webkit-transform: translateX(-22px);
+          transform: translateX(-22px);
+}
+
+.payment-form * {
+  font-family: Roboto, Open Sans, Segoe UI, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.payment-form fieldset {
+  margin: 0 15px 20px;
+  padding: 0;
+  border-style: none;
+  background-color: $white;
+  -webkit-box-shadow: 0 6px 9px $grey, 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+  box-shadow: 0 6px 9px $grey, 0 2px 5px $grey, inset 0 2px 0 $accent;
+  border-radius: 4px;
+}
+
+.payment-form .input + .input {
+  border-top: 1px solid $grey;
+  width: calc(100% - 30px);
+}
+
+.payment-form .input {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 15px;
+}
+
+label {
+  width: 20%;
+  min-width: 70px;
+  padding: 11px 5px;
+  color: $grey;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.payment-form .btn,
+.payment-form input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
+}
+
+.payment-form input:-webkit-autofill {
+  -webkit-text-fill-color: $black;
+  -webkit-transition: background-color 100000000s;
+  transition: background-color 100000000s;
+  -webkit-animation: 1ms void-animation-out;
+}
+
+.payment-form .card--webkit-autofill {
+  background: transparent !important;
+}
+
+.CardField {
+  width: 100%;
+  padding: 11px 15px 11px 0;
+}
+
+#card {
+  padding: 20px;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 11px 15px 11px 0;
+  color: $black;
+  background-color: transparent;
+  -webkit-animation: 1ms void-animation-out;
+}
+
+.payment-form input::-webkit-input-placeholder {
+  color: $accent;
+}
+
+.payment-form input::-moz-placeholder {
+  color: $accent;
+}
+
+.payment-form input:-ms-input-placeholder {
+  color: $accent;
+}
+
+.payment-form input.btn {
+  display: block;
+  width: calc(100% - 30px);
+  height: 40px;
+  margin: 20px 15px 0;
+  background-color: $accent;
+  -webkit-box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffb9f6;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffb9f6;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-form input.btn:active {
+  background-color: $black;
+  -webkit-box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
+}
+
+#card-errors {
+  margin: 0 15px 20px;
+}

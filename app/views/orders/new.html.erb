@@ -1,21 +1,27 @@
 <h1>Checkout</h1>
-<p>Number of order_items in cart: <%= @order.order_items.size %></p>
+<p>Number of order_items in cart:
+  <%= @order.order_items.size %></p>
 
-<%= simple_form_for @order do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
+<div class="payment-form">
+  <%= simple_form_for @order do |f| %>
+  <fieldset>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+  </fieldset>
 
-  <%= f.input :email %>
+  <fieldset>
+    <%= f.input :address_1 %>
+    <%= f.input :address_2 %>
+    <%= f.input :city %>
+    <%= f.input :postal_code %>
+    <%= f.input :country, priority: ['United Kingdom', 'United States'] %>
+  </fieldset>
 
-  <%= f.input :country, priority: ['United Kingdom', 'United States']  %>
-  <%= f.input :address_1 %>
-  <%= f.input :address_2 %>
-  <%= f.input :city %>
-  <%= f.input :postal_code %>
+  <fieldset>
+    <div id="card"></div>
+  </fieldset>
 
-  <div id="card">
-
-  </div>
 
   <!-- Used to display Element errors. -->
   <div id="card-errors" role="alert">
@@ -26,24 +32,56 @@
 
   <%= f.button :submit, "Place order" %>
 <% end %>
+</div>
 
 <script>
-  var stripe = Stripe('<%= Rails.application.credentials.development[:stripe][:public_key] %>');
-  var elements = stripe.elements();
+var stripe = Stripe('<%= Rails.application.credentials.development[:stripe][:public_key] %>');
 
-  var card = elements.create("card", { hidePostalCode: true })
-  card.mount("#card")
+var elements = stripe.elements({
+  fonts: [
+    {
+      cssSrc: 'https://fonts.googleapis.com/css?family=Roboto'
+    }
+  ]
+});
 
-  $("form.new_order").on("submit", function (ev) {
-    ev.preventDefault()
+var card = elements.create("card", {
+  hidePostalCode: true,
+  iconStyle: 'solid',
+  style: {
+    base: {
+      iconColor: '#A31621',
+      color: '#222222',
+      fontWeight: 500,
+      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+      fontSize: '16px',
+      fontSmoothing: 'antialiased',
 
-    stripe.createToken(card).then(function (result) {
-      if (result.error) {
-        $("#card-errors").html(result.error.message)
-      } else {
-        $("form.new_order").append("<input type=hidden name='order[stripe_token]' value=" + result.token.id + ">")
-        $("form.new_order").get(0).submit()
+      ':-webkit-autofill': {
+        color: '#A4A6A5'
+      },
+      '::placeholder': {
+        color: '#A4A6A5'
       }
-    })
+    },
+    invalid: {
+      iconColor: '#A4A6A5',
+      color: '#A4A6A5'
+    }
+  }
+})
+card.mount("#card")
+
+$("form.new_order").on("submit", function (ev) {
+  ev.preventDefault()
+
+  stripe.createToken(card).then(function (result) {
+    if (result.error) {
+      $("#card-errors").html(result.error.message)
+    } else {
+      $("form.new_order").append("<input type=hidden name='order[stripe_token]' value=" + result.token.id + ">")
+      $("form.new_order").get(0).submit()
+    }
   })
+})
 </script>
