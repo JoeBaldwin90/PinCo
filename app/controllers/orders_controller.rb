@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
     if @order.save_and_charge
       reset_session # same as log-out
       flash[:success] = "Order completed"
+      OrderMailer.receipt(@order).deliver_now
       redirect_to order_path(@order)
     else
       render "new"
