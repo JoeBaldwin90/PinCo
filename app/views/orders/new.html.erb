@@ -18,7 +18,11 @@
   </div>
 
   <!-- Used to display Element errors. -->
-  <div id="card-errors" role="alert"></div>
+  <div id="card-errors" role="alert">
+    <% @order.errors[:stripe_token].each do |message| %>
+      <p class="error"><%= message %></p>
+    <% end %>
+  </div>
 
   <%= f.button :submit, "Place order" %>
 <% end %>
