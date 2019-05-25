@@ -13,5 +13,33 @@
   <%= f.input :city %>
   <%= f.input :postal_code %>
 
+  <div id="card">
+
+  </div>
+
+  <!-- Used to display Element errors. -->
+  <div id="card-errors" role="alert"></div>
+
   <%= f.button :submit, "Place order" %>
 <% end %>
+
+<script>
+  var stripe = Stripe('<%= Rails.application.credentials.development[:stripe][:public_key] %>');
+  var elements = stripe.elements();
+
+  var card = elements.create("card", { hidePostalCode: true })
+  card.mount("#card")
+
+  $("form.new_order").on("submit", function (ev) {
+    ev.preventDefault()
+
+    stripe.createToken(card).then(function (result) {
+      if (result.error) {
+        $("#card-errors").html(result.error.message)
+      } else {
+        $("form.new_order").append("<input type=hidden name='order[stripe_token]' value=" + result.token.id + ">")
+        $("form.new_order").get(0).submit()
+      }
+    })
+  })
+</script>
