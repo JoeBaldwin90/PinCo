@@ -5,5 +5,5 @@ CarrierWave.configure do |config|
     aws_access_key_id:     Rails.application.credentials.aws_key,      # required unless using use_iam_profile
     aws_secret_access_key: Rails.application.credentials.aws_password, # required unless using use_iam_profile
   }
-  config.fog_directory  = Rails.appliication.credentials.aws_bucket                 # required
+  config.fog_directory  = Rails.application.credentials.aws_bucket                 # required
 end
