@@ -50,6 +50,6 @@
   Total: <%= number_to_currency @current_cart.total_price_in_pounds, unit: "£" %>
 </p>
 
-<p>
+<p class="checkout-button">
   <%= link_to "Continue to checkout", new_order_path, :class => "btn" %>
 </p>

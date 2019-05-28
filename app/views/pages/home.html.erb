@@ -1,6 +1,15 @@
-<h1>Homepage</h1>
+<p class="intro">
+  Welcome to PinCo!
+</p>
+<p class="intro">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam est magni officia culpa recusandae omnis accusantium sed minima pariatur similique.
+</p>
+
 <h2>Featured products</h2>
 
-<%= render partial: "products/product", collection: @featured_products %>
+<section class="featured-products">
+  <%= render partial: "products/product", collection: @featured_products %>
+</section>
+
 
 <p><%= link_to "All products", products_path %></p>
