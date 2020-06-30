@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>PinCo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,38 +10,41 @@
 
     <script src="https://js.stripe.com/v3/"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
 
     <header>
-      <h1><%= link_to "PinCo", root_path %></h1>
+        <h1><%= link_to "PinCo", root_path %></h1>
 
-      <nav>
-        <ul>
-          <li class="header"><%= link_to "Shop", products_path %></li>
-          <li class="header"><%= link_to "Info", info_path %></li>
-          <li class="header"><%= link_to cart_path do %>
-            Cart (<%= number_to_currency @current_cart.total_price_in_pounds, unit: "£" %>)
-          <% end %>
-        </li>
-      </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li class="header"><%= link_to "Shop", products_path %></li>
+                <li class="header"><%= link_to "Info", info_path %></li>
+                <li class="header"><%= link_to cart_path do %>
+                    Cart (<%= number_to_currency @current_cart.total_price_in_pounds, unit: "£" %>)
+                    <% end %>
+                </li>
+            </ul>
+        </nav>
 
-  </header>
+    </header>
 
-<% if flash[:success].present? %>
-  <div class="success">
-    <%= flash[:success] %>
-  </div>
-<% end %>
+    <section class="content-container">
+        <% if flash[:success].present? %>
+        <div class="success">
+            <%= flash[:success] %>
+        </div>
+        <% end %>
 
-<%= yield %>
+        <%= yield %>
+    </section>
 
-<footer>
-  <p>Copyright 2019 |
-    <%= link_to "Returns policy", "#" %></p>
-</footer>
+    <footer>
+        <p>Copyright 2019 |
+            <%= link_to "Returns policy", "#" %></p>
+    </footer>
 
 </body>
+
 </html>

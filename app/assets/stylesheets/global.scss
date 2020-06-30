@@ -6,9 +6,21 @@ $accent: #A31621;
 $scriptFont: "Playfair Display";
 $sansFont: "Karla";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $sansFont;
   color: $black;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+section.content-container {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 footer,
