@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 ### Project gems ###
 gem 'active_link_to'
 gem 'simple_form'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "fog-aws"
 gem 'mini_magick'
 gem 'activeadmin'
